@@ -25,29 +25,7 @@ const GraduateController = router => {
             }
         }
     );
-
-    router.post(
-        `${BASE_PATH}/login`,
-        cors(),
-        (req: express.Request, res: express.Response) => {
-            try {
-                let formLogin = req.body.formLogin
-                console.log(formLogin);
-
-                let userFix = "admin"
-                let passFix = "P@ssw0rd"
-                if (formLogin.username === userFix && formLogin.pwd === passFix) {
-                    return res.status(200).json({ status_code: 200, msg: "Login success", type: "success", });
-                } else {
-                    return res.json({ status_code: 400, msg: "Login fail!", type: "error" });
-                }
-
-            } catch (e) {
-                res.status(404).json({ code: 404, error: e });
-            }
-        }
-    );
-
+    
     router.post(
         `${BASE_PATH}/saveData`,
         cors(),
